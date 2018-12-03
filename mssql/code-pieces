@@ -1,0 +1,17 @@
+-- Copy contents of one table into another. (column names and types must be the same)
+-- If new table does not exist, it is created automatically.
+
+-- copy all records
+SELECT * INTO new_table FROM old_table;  
+
+-- copy all records from a table that belongs to another db
+SELECT * INTO new_table IN 'newdb.mdb' FROM old_table; 
+
+-- only copy selected columns
+SELECT column_name1, column_name2 INTO new_table FROM old_table;
+
+-- copy limited number of records
+SELECT TOP 100 * INTO new_table FROM old_table;
+
+
+-------------------------------------------------------------------------------------------
