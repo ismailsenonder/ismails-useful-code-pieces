@@ -15,3 +15,14 @@ SELECT TOP 100 * INTO new_table FROM old_table;
 
 
 -------------------------------------------------------------------------------------------
+
+-- Search text in procedures, triggers and functions.
+
+-- Method 1
+SELECT DISTINCT o.name AS Object_Name, o.type_desc FROM sys.sql_modules m 
+INNER JOIN sys.objects o ON m.object_id = o.object_id WHERE m.definition Like ‘%search_text%’;  
+
+-- Method 2
+SELECT name FROM sys.procedures WHERE Object_definition(object_id) LIKE ‘%search_text%’  
+
+--------------------------------------------------------------------------------------------
