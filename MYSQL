@@ -5,3 +5,9 @@ FROM INFORMATION_SCHEMA.TABLES
 WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA='dbName' 
 
 ----------------------------------------------------
+
+-- Find all procedures and functions that uses, references or depends on a table.
+
+SELECT * FROM Mysql.proc where body LIKE '%table_name%';
+
+---------------------------------------------------------
