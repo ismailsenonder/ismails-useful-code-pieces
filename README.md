@@ -1,4 +1,17 @@
-## Copy contents of one table into another (column names and types must be the same)
+## (MSSQL) Search text in procedures, triggers and functions.
+
+#### Method 1
+```sql
+SELECT DISTINCT o.name AS Object_Name, o.type_desc FROM sys.sql_modules m 
+INNER JOIN sys.objects o ON m.object_id = o.object_id WHERE m.definition Like ‘%search_text%’;  
+```
+#### Method 2
+```sql
+SELECT name FROM sys.procedures WHERE Object_definition(object_id) LIKE ‘%search_text%’  
+```
+
+## (MSSQL) Copy contents of one table into another
+Noe: Column names and types must be the same
 #### Copy all records
 ```sql
 SELECT * INTO new_table FROM old_table;  
