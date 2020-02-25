@@ -43,3 +43,16 @@ SELECT TABLE_NAME
 FROM INFORMATION_SCHEMA.TABLES
 WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_CATALOG='dbName'
 ```
+
+## (MySQL) Get all table names in a database
+```sql
+SELECT TABLE_NAME 
+FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA='dbName' 
+```
+
+## (MySQL) Find all procedures and functions that uses, references or depends on a table
+```sql
+SELECT * FROM Mysql.proc where body LIKE '%table_name%';
+```
+
